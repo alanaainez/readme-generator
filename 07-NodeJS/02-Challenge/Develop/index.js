@@ -1,7 +1,12 @@
 // TODO: Include packages needed for this application
-
+import inquirer from 'inquirer';
 // TODO: Create an array of questions for user input
-const questions = [];
+const questions = [
+    {    name: 'username',
+    title: 'project',
+    contact: 'email',        
+    }
+];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
