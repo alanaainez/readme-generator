@@ -64,6 +64,7 @@ async function init() {
       writeToFile('README.md', markdownContent);
     } catch (error) {
       console.error('Error during initialization:', error);
+      console.log('Please check your inputs and try again.');
     }
   }
 // Function call to initialize app

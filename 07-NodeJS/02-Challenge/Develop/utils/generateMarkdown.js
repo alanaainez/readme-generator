@@ -4,7 +4,7 @@ function renderLicenseBadge(license) {
   if (!license) return '';
   return `![License](https://img.shields.io/badge/license-${license}-blue.svg)`;
 }
-console.log(renderLicenseBadge(license));
+//console.log(renderLicenseBadge(license));
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
@@ -15,14 +15,14 @@ function renderLicenseLink(license) {
   };
   return licenseLinks[license] || '';
 }
-console.log(renderLicenseLink(license));
+//console.log(renderLicenseLink(license));
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-  if (!license) return '';
+  if (!license || license === 'None') return '';
   return `## License\nThis project is licensed under the ${license} license.`;
 }
-console.log(renderLicenseSection(license));
+//console.log(renderLicenseSection(license));
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
@@ -39,7 +39,7 @@ ${data.description}
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
-- [License](#license)
+${data.license !== 'None' ? '- [License](#license)' : ''}
 
 ## Installation
 To install the necessary dependencies, run the following command:
@@ -51,9 +51,8 @@ ${data.installation}
 ## Usage
 ${data.usage}
 
-## License
-${licenseSection}
-For more information, see the [${data.license} License](${licenseLink}).
+${data.license !== 'None' ? `## License\n${licenseSection}\nFor more information, see the [${data.license} License](${licenseLink}).` : ''}
 `;
 }
-module.exports = generateMarkdown;
+
+export default generateMarkdown;
