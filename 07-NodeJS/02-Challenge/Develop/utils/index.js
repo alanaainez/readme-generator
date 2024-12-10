@@ -3,6 +3,7 @@ import inquirer from 'inquirer';
 import fs from 'fs';
 import generateMarkdown from './generateMarkdown.js';
 // TODO: Create an array of questions for user input
+// README would include title, description, installation, usage, license, username and email
 const questions = [
     {type: 'input',
     name: 'title',
@@ -52,7 +53,7 @@ function writeToFile(fileName, data) {fs.writeFile(fileName, data, (err) => {
 }
 
 // TODO: Create a function to initialize app
-//function init() {}
+//function init() {} -> Wasn't working, try async
 async function init() {
     try {
       const answers = await inquirer.prompt(questions);
